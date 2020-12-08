@@ -49,16 +49,22 @@ public class GridMouseListener implements java.awt.event.MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        boolean legal = false;
         int row = e.getX();
         int col = e.getY();
         int rowIndex = row / BORDERED_CELL_SIZE;
         int colIndex = col / BORDERED_CELL_SIZE;
 
-        if(!click){
+        if((rowIndex < 48  && rowIndex > 4 && colIndex > 1 && colIndex < 77 && currentPlayer == Player.BLUE)
+        || (rowIndex > 50 && rowIndex < 95 && colIndex > 1 && colIndex < 77 && currentPlayer == Player.RED)){
+            legal = true;
+        }
+
+        if(!click && legal){
             grid.setCell(rowIndex, colIndex, currentPlayer, currentShape);
             click = true;
+            currentShape = Shapes.BLANK;
         }
-        currentShape = Shapes.BLANK;
         e.getComponent().repaint();
     }
 
