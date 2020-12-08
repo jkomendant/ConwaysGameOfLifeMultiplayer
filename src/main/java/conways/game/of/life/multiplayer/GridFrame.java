@@ -36,6 +36,7 @@ public class GridFrame extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Game of Life");
         setLayout(new BorderLayout());
+        setIconImage(new ImageIcon(getClass().getResource("/gol.png")).getImage());
 
         gridView.addMouseListener(listener);
         add(view, BorderLayout.CENTER);
