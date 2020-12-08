@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'touro.snake'
+version '1.0-SNAPSHOT'
+
+// Latest version of Java
+sourceCompatibility = 14
+
+repositories {
+    mavenCentral()
+}
+
+// https://stackoverflow.com/a/4894308/2700520
+jar {
+    manifest {
+        attributes "Main-Class": "conways.game.of.life.multiplayer.Main"
+    }
+
+    // this will put all the dependencies in the jar file
+    from {
+        configurations.runtimeClasspath.collect {it.isDirectory() ? it : zipTree(it)}
+    }
+}
+
+dependencies {
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    testImplementation 'org.mockito:mockito-core:3.5.5'
+}
