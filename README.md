@@ -1,4 +1,4 @@
-###<u>Conway's Game of Life Multiplayer</u>
+### <u>Conway's Game of Life Multiplayer</u>
 
 A multiplayer game based on Conway's Game of Life. Each player
 has 75 turns where he or she places a piece down on the board during 
